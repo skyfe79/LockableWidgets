@@ -25,16 +25,24 @@ public class LockableViewPager extends ViewPager {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if(swipeable) {
-            return super.onTouchEvent(ev);
+        try {
+            if (swipeable) {
+                return super.onTouchEvent(ev);
+            }
+        } catch (IllegalArgumentException e) {
+
         }
         return false;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if(swipeable) {
-            return super.onInterceptTouchEvent(ev);
+        try {
+            if (swipeable) {
+                return super.onInterceptTouchEvent(ev);
+            }
+        } catch (IllegalArgumentException e) {
+
         }
         return false;
     }
